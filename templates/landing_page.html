@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Language Recognition System</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: black;
+            margin: 0;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #fff;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .container {
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+            background-color: transparent;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: none;
+        }
+
+        header {
+            background-color: transparent;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            color: #070707;
+            margin: 0;
+        }
+
+        #videoContainer {
+            margin-bottom: 20px;
+        }
+
+        video {
+            width: 80%;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        #startDetectionBtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease-in-out;
+            margin-top: 20px;
+        }
+
+        #startDetectionBtn:hover {
+            background-color: #45a049;
+        }
+
+        .instruction-text {
+            margin-top: 20px;
+            font-size: 18px;
+            background-color: black;
+        }
+
+        .gifs-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 20px;
+            animation: fadeInUp 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .gif {
+            width: 150px;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="container">
+        <div class="gifs-container">
+            <img src="../img/shuvo.png" alt="hi">
+            <img class="gif" src="{{url_for('static', filename='image/sokal.gif')}}" alt="Sokal Sign">
+            <img class="gif" src="{{url_for('static', filename='image/apni.gif')}}" alt="Apni Sign">
+            <img class="gif" src="{{url_for('static', filename='image/kemon.gif')}}" alt="Kemon Sign">
+            <img class="gif" src="{{url_for('static', filename='image/achen.gif')}}" alt="Achen Sign">
+        </div>
+
+        <button id="startDetectionBtn" onclick="startDetection()">Start Detection</button>
+        <div class="instruction-text">
+            <p>Welcome to our Sign Language Recognition website!</p>
+            <p>This platform can recognize sign language gestures and provide corresponding text.</p>
+            <p>Follow the instructions in the video to make the correct signs.</p>
+        </div>
+    </div>
+
+    <script>
+        function startDetection() {
+            window.location.href = "/detection"; // Redirect to the detection page
+        }
+    </script>
+</body>
+
+</html>
